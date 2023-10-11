@@ -2,24 +2,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
-import java.util.Random;
 
 
 public class BasePage {
 
-
     public WebDriver driver;
-
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
     }
-
 
     public void visibleElement(By locator) {
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(15));
@@ -30,16 +25,19 @@ public class BasePage {
         visibleElement(locator);
         return driver.findElement(locator);
     }
+
     public List<WebElement> findAll(By locator) {
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(15));
         return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
     }
+
     public void clickJS(By locator) {
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(15));
         WebElement button = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click()", button);
     }
+
     public void showYellowElement(By locator) {
         visibleElement(locator);
         WebElement element = driver.findElement(locator);
@@ -82,7 +80,6 @@ public class BasePage {
         showYellowElement(locator);
         driver.findElement(locator).click();
     }
-
 
     public void wait(String mSaniye) throws InterruptedException {
         Thread.sleep(Long.parseLong(mSaniye));

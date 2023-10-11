@@ -18,12 +18,6 @@ public class HomePage extends BasePage {
     private final By searchButton = By.cssSelector("div.BookerSearchButton__Wrapper-sc-hf9sbn-0>button.styled__StyledButton-sc-1i7jkmi-0");
 
 
-
-
-
-
-
-
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -40,6 +34,7 @@ public class HomePage extends BasePage {
     public void fillHotelNameOrLocation(String location) {
         find(inputHotelNameOrLocation).sendKeys(location);
     }
+
     public void chooseHotelNameOrLocation() {
         click(inputHotelNameOrLocation);
         click(dropdownAntalya);
@@ -53,7 +48,7 @@ public class HomePage extends BasePage {
         click(acceptCookies);
     }
 
-    public void chooseTimeInterval() throws InterruptedException {
+    public void chooseTimeInterval() {
         click(inputTimeInterval);
         untilVisibleClick(timeApril,nextButtonMonth);
         click(intervalTimeFirst);
@@ -78,7 +73,5 @@ public class HomePage extends BasePage {
     public void verifyAndClickSearchButton() {
         click(searchButton);
     }
-
-
 
 }

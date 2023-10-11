@@ -1,9 +1,6 @@
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.time.Duration;
@@ -12,7 +9,7 @@ public class BaseTest {
     public static WebDriver driver;
 
     @BeforeAll
-    public void setUp() {
+    public static void setUp() {
 
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
@@ -23,7 +20,7 @@ public class BaseTest {
     }
 
     @AfterAll
-    public void tearDown() {
+    public static void tearDown() {
         driver.quit();
     }
 

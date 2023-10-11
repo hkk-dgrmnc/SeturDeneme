@@ -65,6 +65,7 @@ public class TestSuites extends BaseTest {
     public void specialFonkSeven() {
          homePage.verifyAndClickSearchButton();
     }
+
     @Test
     @DisplayName("Açılan url içinde antalya kelimesini içerdiği kontrol edilir.")
     @Order(8)
@@ -72,12 +73,14 @@ public class TestSuites extends BaseTest {
         searchPage.waitSearchPageLoading();
         Assertions.assertTrue((homePage.getCurrentUrl().contains("antalya")),"Url dogru degil !");
     }
+
     @Test
     @DisplayName("Diğer Bölgeleri Göster alanında rastgele tıklama metotu kullanılarak bir seçim yapılır ve () içerisinde bulunan sayı kaydedilir.")
     @Order(9)
     public void specialFonkNine() throws InterruptedException {
         searchPage.findElementsGetCountAndChooseRandomOne();
     }
+
     @Test
     @DisplayName("Sayfanın altında bulunan Antalya Otelleri ve En Uygun Antalya Otel Fiyatları alanına kadar ekranda kaydırma yapılır, kaydedilen değerin dogrulugu kontrol edilir.")
     @Order(10)
